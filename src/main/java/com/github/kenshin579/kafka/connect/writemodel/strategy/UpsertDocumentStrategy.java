@@ -32,6 +32,8 @@ public class UpsertDocumentStrategy implements WriteModelStrategy {
 
     @Override
     public WriteModel<BsonDocument> createWriteModel(SinkDocument document) {
+        System.out.println("document:" + document);
+
         BsonDocument vd = document.getValueDoc().orElseThrow(() ->
                 new DataException(
                         "Could not build the WriteModel,the value document was missing unexpectedly"));
